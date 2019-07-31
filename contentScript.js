@@ -3,12 +3,16 @@ function checkForVin() {
   const article = document.createElement('article');
   const title = document.createElement('h5')
   const vin = document.createElement('p')
-  title.className = 'tds-text--body_small_headline'
-  title.innerText = "VIN"
-  vin.className = 'tds-text--body_small'
-  vin.innerText = "Checking"
-  article.appendChild(title)
-  article.appendChild(vin)
+  const warning = document.createElement('p');
+  warning.innerText = "The presence/absence of a provisional VIN doesn't necessarily mean anything.";
+  warning.style.fontSize = "0.8em";
+  title.className = 'tds-text--body_small_headline';
+  title.innerText = "Provisional VIN";
+  vin.className = 'tds-text--body_small';
+  vin.innerText = "Checking";
+  article.appendChild(title);
+  article.appendChild(vin);
+  article.appendChild(warning);
   sidebar.insertBefore(article, sidebar.firstChild);
 
   const CHECK_INTERVAL = 250;
@@ -16,12 +20,10 @@ function checkForVin() {
   let checked = false;
 
   const vinCheckTimeout = setInterval(() => {
-    if (Tesla) {
+    if (typeof Tesla !== 'undefined') {
       checked = true
       vin.innerText = Tesla.ProductF.Data.Insurance.vin || 'None';
       clearInterval(vinCheckTimeout);
-    } else {
-      vin.innerText = vin.innerText + '.'
     }
   }, CHECK_INTERVAL);
 
