@@ -19,6 +19,7 @@ function checkForVin() {
     if (Tesla) {
       checked = true
       vin.innerText = Tesla.ProductF.Data.Insurance.vin || 'None';
+      clearInterval(vinCheckTimeout);
     } else {
       vin.innerText = vin.innerText + '.'
     }
