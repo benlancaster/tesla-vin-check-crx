@@ -4,13 +4,23 @@
   "description": "Checks the global Tesla object for the presence of a VIN and displays it on the page",
   "manifest_version": 2,
   "permissions": [
-    "activeTab", "tabs"
+    "activeTab",
+    "tabs"
   ],
   "content_scripts": [
     {
-      "matches": ["https://www.tesla.com/en_GB/teslaaccount/product-finalize?rn=*"],
+      "matches": [
+        "https://www.tesla.com/en_GB/teslaaccount/product-finalize?rn=*"
+      ],
       "run_at": "document_idle",
-      "js": ["contentScript.js"]
+      "js": [
+        "contentScript.js"
+      ]
     }
-  ]
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
