@@ -4,8 +4,7 @@
   "description": "Checks the global Tesla object for the presence of a VIN and displays it on the page",
   "manifest_version": 2,
   "permissions": [
-    "activeTab",
-    "tabs"
+    "activeTab"
   ],
   "content_scripts": [
     {
